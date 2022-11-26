@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import UserModel from '../Models/User.js';
+import Organization from "../Models/Organization.js";
 
 export const register = async (req, res) => {
     try {
@@ -13,6 +14,12 @@ export const register = async (req, res) => {
             fullName: req.body.fullName,
             avatarUrl: req.body.avatarUrl,
             passwordHash: hash,
+            role: req.body.role,
+            country: req.body.country,
+            city: req.body.city,
+            birthday: req.body.birthday,
+            phoneNumber: req.body.phoneNumber,
+            biography: req.body.biography,
         });
 
         const user = await doc.save();
@@ -103,3 +110,61 @@ export const getMe = async (req, res) => {
         });
     }
 };
+
+export const update = async (req, res) => {
+    try {
+        const postId = req.params.id;
+
+        await UserModel.updateOne(
+            {
+                _id: postId,
+            },
+            {
+                email: req.body.email,
+                fullName: req.body.fullName,
+                avatarUrl: req.body.avatarUrl,
+                passwordHash: hash,
+                role: req.body.role,
+                country: req.body.country,
+                city: req.body.city,
+                birthday: req.body.birthday,
+                phoneNumber: req.body.phoneNumber,
+                biography: req.body.biography,
+            },
+        );
+
+        res.json({
+            success: true,
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(404).json({
+            message: 'error',
+        });
+    }
+};
+
+export const getAll = async (req, res) => {
+    try {
+        const users = await UserModel.find().exec();
+        res.json(users);
+    } catch (err) {
+        console.log(err);
+        res.status(404).json({
+            message: 'error',
+        });
+    }
+};
+
+export const getOne = async (req, res) => {
+    try{
+        const userName = req.params.fullName;
+        const user = await Organization.findOne({fullName: userName})
+        res.json (user)
+    }catch (err){
+        console.log(err)
+        res.status(404).json({
+            message: "error"
+        })
+    }
+}

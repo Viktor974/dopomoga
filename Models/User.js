@@ -15,25 +15,23 @@ const UserSchema = new mongo.Schema({
         required: true
     },
     avatarUrl: String,
-    country: {
+    role: {
         String,
-        default: ''
+    },
+    country: {
+        type: String,
     },
     city: {
         String,
-        default: ''
     },
     birthday: {
         String,
-        default: ''
     },
     phoneNumber: {
         String,
-        default: ''
     },
     biography: {
         String,
-        default: ''
     },
 }, {
     timestamps: true,

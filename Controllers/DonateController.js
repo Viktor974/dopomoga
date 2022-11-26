@@ -1,12 +1,15 @@
-import Organization from "../Models/Organization.js";
+import Donate from "../Models/Donate.js";
 
 export const create = async (req, res) => {
     try {
-        const doc = new Organization({
+        const doc = new Donate({
             name: req.body.title,
             imageUrl: req.body.imageUrl,
             creator: req.userId,
             text: req.body.text,
+            email: req.body.email,
+            phoneNumber: req.body.phoneNumber,
+            sum: req.body.sum,
         });
 
         const post = await doc.save();
@@ -23,7 +26,7 @@ export const create = async (req, res) => {
 
 export const getAll = async (req, res) => {
     try {
-        const organisations = await Organization.find().exec();
+        const organisations = await Donate.find().exec();
         res.json(organisations);
     } catch (err) {
         console.log(err);
@@ -34,8 +37,8 @@ export const getAll = async (req, res) => {
 };
 export const getOne = async (req, res) => {
     try{
-        const orgId = req.params.id;
-        const organisation = await Organization.findOne({_id: orgId})
+        const donateId = req.params.id;
+        const organisation = await Donate.findOne({_id: donateId})
         res.json (organisation)
     }catch (err){
         console.log(err)
@@ -48,7 +51,7 @@ export const remove = async (req, res) => {
     try {
         const orgId = req.params.id;
 
-        Organization.findOneAndDelete(
+        Donate.findOneAndDelete(
             {
                 _id: orgId,
             },
@@ -80,17 +83,20 @@ export const remove = async (req, res) => {
 };
 export const update = async (req, res) => {
     try {
-        const postId = req.params.id;
+        const donateId = req.params.id;
 
-        await Organization.updateOne(
+        await Donate.updateOne(
             {
-                _id: postId,
+                _id: donateId,
             },
             {
                 name: req.body.title,
                 imageUrl: req.body.imageUrl,
                 creator: req.userId,
                 text: req.body.text,
+                email: req.body.email,
+                phoneNumber: req.body.phoneNumber,
+                sum: req.body.sum,
             },
         );
 
