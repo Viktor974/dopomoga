@@ -10,6 +10,10 @@ const UserSchema = new mongo.Schema({
         type: String,
         required: true,
     },
+    login: {
+        type: String,
+        required: true,
+    },
     passwordHash: {
         type: String,
         required: true

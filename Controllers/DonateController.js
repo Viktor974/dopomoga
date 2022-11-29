@@ -1,33 +1,10 @@
-import Donate from "../Models/Donate.js";
-
-export const create = async (req, res) => {
-    try {
-        const doc = new Donate({
-            name: req.body.title,
-            imageUrl: req.body.imageUrl,
-            creator: req.userId,
-            text: req.body.text,
-            email: req.body.email,
-            phoneNumber: req.body.phoneNumber,
-            sum: req.body.sum,
-        });
-
-        const post = await doc.save();
-
-        res.json(post);
-    } catch (err) {
-        console.log(err);
-        res.status(404).json({
-            message: 'error',
-        });
-    }
-};
+import Donate from '../Models/Donate.js';
 
 
 export const getAll = async (req, res) => {
     try {
-        const organisations = await Donate.find().exec();
-        res.json(organisations);
+        const donates = await Donate.find().populate('user').exec();
+        res.json(donates);
     } catch (err) {
         console.log(err);
         res.status(404).json({
@@ -35,11 +12,12 @@ export const getAll = async (req, res) => {
         });
     }
 };
+
 export const getOne = async (req, res) => {
     try{
         const donateId = req.params.id;
-        const organisation = await Donate.findOne({_id: donateId})
-        res.json (organisation)
+        const donate = await Donate.findOne({_id: donateId})
+        res.json (donate)
     }catch (err){
         console.log(err)
         res.status(404).json({
@@ -47,13 +25,14 @@ export const getOne = async (req, res) => {
         })
     }
 }
+
 export const remove = async (req, res) => {
     try {
-        const orgId = req.params.id;
+        const donateId = req.params.id;
 
         Donate.findOneAndDelete(
             {
-                _id: orgId,
+                _id: donateId,
             },
             (err, doc) => {
                 if (err) {
@@ -81,22 +60,42 @@ export const remove = async (req, res) => {
         });
     }
 };
+
+export const create = async (req, res) => {
+    try {
+        const doc = new Donate({
+            title: req.body.title,
+            text: req.body.text,
+            imageUrl: req.body.imageUrl,
+            tags: req.body.tags,
+            user: req.userId,
+        });
+
+        const post = await doc.save();
+
+        res.json(post);
+    } catch (err) {
+        console.log(err);
+        res.status(404).json({
+            message: 'error',
+        });
+    }
+};
+
 export const update = async (req, res) => {
     try {
         const donateId = req.params.id;
 
         await Donate.updateOne(
             {
-                _id: donateId,
+                _id: postId,
             },
             {
-                name: req.body.title,
-                imageUrl: req.body.imageUrl,
-                creator: req.userId,
+                title: req.body.title,
                 text: req.body.text,
-                email: req.body.email,
-                phoneNumber: req.body.phoneNumber,
-                sum: req.body.sum,
+                imageUrl: req.body.imageUrl,
+                user: req.userId,
+                tags: req.body.tags,
             },
         );
 

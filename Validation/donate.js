@@ -1,6 +1,7 @@
 import { body } from "express-validator";
 
-export const donateValidation = [
-    body('name', 'Введите заголовок').isLength({ min: 3 }).isString(),
-    body('text', 'Введите text').isLength({ min: 3 }).isString(),
+export const donateCreateValidation = [
+    body('title', 'Введите заголовок статьи').isLength({ min: 3 }).isString(),
+    body('text', 'Введите текст статьи').isLength({ min: 3 }).isString(),
+    body('tags', 'Неверный формат тэгов').optional().isString(),
 ];

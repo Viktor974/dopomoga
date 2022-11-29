@@ -1,10 +1,11 @@
 import express from 'express';
 import multer from 'multer';
 import mongo from 'mongoose'
+import cors from "cors";
 
 import {registerValidation, loginValidation} from './Validation/auth.js'
 import {organizationValidation} from './Validation/organization.js'
-import {donateValidation} from './Validation/donate.js'
+import {donateCreateValidation} from './Validation/donate.js'
 import {postCreateValidation} from './Validation/post.js'
 
 import * as Organization from './Controllers/OrganizationController.js'
@@ -22,9 +23,11 @@ mongo
 
 const app = express();
 
+app.use(cors())
+
 const storage = multer.diskStorage({
     destination: (a, b, callback)=>{
-      callback(null, 'Uploads')
+      callback(null, 'uploads')
     },
     filename: (a, file, callback)=>{
       callback(null, file.originalname)
@@ -41,8 +44,9 @@ app.use('/upload', checkAuth, upload.single('image'), (req, res)=>{
 });
 app.use('/uploads', express.static('uploads'));
 
-app.post('/auth/register',registerValidation ,validationErrors , UserController.register);
-app.post('/auth/login', loginValidation,validationErrors, UserController.login);
+
+app.post('/reg', registerValidation ,validationErrors , UserController.register);
+app.post('/login', loginValidation,validationErrors, UserController.login);
 app.get('/me', checkAuth, UserController.getMe);
 
 
@@ -58,17 +62,11 @@ app.get('/organization/:id', Organization.getOne);
 app.get('/organization', Organization.getAll);
 app.get('/organization', checkAuth, organizationValidation, Organization.update);
 
-app.post('/user',checkAuth, organizationValidation, Organization.create);
-app.get('/user/:id', checkAuth, Organization.remove);
-app.get('/user/:id', Organization.getOne);
-app.get('/user', Organization.getAll);
-app.get('/user', checkAuth, organizationValidation, Organization.update);
-
-app.post('/donate',checkAuth, donateValidation, Donate.create);
+app.post('/donate',checkAuth, donateCreateValidation, Donate.create);
 app.get('/donate/:id', checkAuth, Donate.remove);
 app.get('/donate/:id', Donate.getOne);
 app.get('/donate', Donate.getAll);
-app.get('/donate', checkAuth, donateValidation, Donate.update);
+app.get('/donate', checkAuth, donateCreateValidation, Donate.update);
 
 app.listen(process.env.PORT || 4444, (err) => {
     if (err) {

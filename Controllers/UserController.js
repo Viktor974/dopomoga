@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import UserModel from '../Models/User.js';
-import Organization from "../Models/Organization.js";
 
 export const register = async (req, res) => {
     try {
@@ -10,10 +9,11 @@ export const register = async (req, res) => {
         const hash = await bcrypt.hash(password, salt);
 
         const doc = new UserModel({
-            email: req.body.email,
             fullName: req.body.fullName,
-            avatarUrl: req.body.avatarUrl,
+            login: req.body.login,
+            email: req.body.email,
             passwordHash: hash,
+            avatarUrl: req.body.avatarUrl,
             role: req.body.role,
             country: req.body.country,
             city: req.body.city,
@@ -159,7 +159,7 @@ export const getAll = async (req, res) => {
 export const getOne = async (req, res) => {
     try{
         const userName = req.params.fullName;
-        const user = await Organization.findOne({fullName: userName})
+        const user = await UserModel.findOne({fullName: userName})
         res.json (user)
     }catch (err){
         console.log(err)
