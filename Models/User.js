@@ -9,19 +9,19 @@ const UserSchema = new mongo.Schema({
     fullName: {
         type: String,
         required: true,
+        min: 3,
+        max: 30,
     },
     login: {
         type: String,
         required: true,
+        unique: true
     },
     passwordHash: {
         type: String,
         required: true
     },
     avatarUrl: String,
-    role: {
-        String,
-    },
     country: {
         type: String,
     },
@@ -37,6 +37,22 @@ const UserSchema = new mongo.Schema({
     biography: {
         String,
     },
+    followers:{
+        type:Array,
+        default:[]
+    },
+    followins:{
+        type:Array,
+        default:[]
+    },
+    isAdmin:{
+        type: Boolean,
+        default: false
+    },
+    relationship:{
+        type: Number,
+        enum: [1, 2, 3],
+    }
 }, {
     timestamps: true,
 })

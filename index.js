@@ -1,6 +1,9 @@
 import express from 'express';
 import multer from 'multer';
 import mongo from 'mongoose'
+import dotenv from 'dotenv'
+import helmet from 'helmet'
+import morgan from 'morgan'
 import cors from "cors";
 
 import {registerValidation, loginValidation} from './Validation/auth.js'
@@ -9,15 +12,16 @@ import {donateCreateValidation} from './Validation/donate.js'
 import {postCreateValidation} from './Validation/post.js'
 
 import * as Organization from './Controllers/OrganizationController.js'
+import * as AuthController from './Controllers/AuthController.js'
 import * as UserController from './Controllers/UserController.js'
 import * as PostController from './Controllers/PostController.js'
 import * as Donate from "./Controllers/DonateController.js";
 
 import validationErrors from "./Validation/validationErrors.js";
 import checkAuth from './Util/checkAuth.js'
-
+dotenv.config()
 mongo
-    .connect('mongodb+srv://viktor:32003200@dopomaga.oipxaa5.mongodb.net/dopomoga?retryWrites=true&w=majority')
+    .connect(process.env.MONGO_URL)
     .then(() => console.log("DB connected"))
     .catch((err) => console.log("DB error", err))
 
@@ -27,10 +31,10 @@ app.use(cors())
 
 const storage = multer.diskStorage({
     destination: (a, b, callback)=>{
-      callback(null, 'uploads')
+        callback(null, 'uploads')
     },
     filename: (a, file, callback)=>{
-      callback(null, file.originalname)
+        callback(null, file.originalname)
     },
 })
 const upload = multer({storage})
@@ -45,9 +49,10 @@ app.use('/upload', checkAuth, upload.single('image'), (req, res)=>{
 app.use('/uploads', express.static('uploads'));
 
 
-app.post('/reg', registerValidation ,validationErrors , UserController.register);
-app.post('/login', loginValidation,validationErrors, UserController.login);
-app.get('/me', checkAuth, UserController.getMe);
+app.post('/reg', registerValidation ,validationErrors , AuthController.register);
+app.post('/login', loginValidation, validationErrors, AuthController.login);
+app.put('/.id', loginValidation, validationErrors, UserController.update);
+// app.get('/me', checkAuth, UserController.getMe);
 
 
 app.post('/posts', checkAuth, postCreateValidation, PostController.create);
