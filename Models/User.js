@@ -17,7 +17,7 @@ const UserSchema = new mongo.Schema({
         required: true,
         unique: true
     },
-    passwordHash: {
+    password: {
         type: String,
         required: true
     },
@@ -37,11 +37,15 @@ const UserSchema = new mongo.Schema({
     biography: {
         String,
     },
+    posts:{
+        type:Array,
+        default:[]
+    },
     followers:{
         type:Array,
         default:[]
     },
-    followins:{
+    followings:{
         type:Array,
         default:[]
     },

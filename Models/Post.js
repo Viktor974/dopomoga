@@ -6,9 +6,10 @@ const PostSchema = new mongo.Schema(
             type: String,
             required: true,
         },
-        text: {
+        desk: {
             type: String,
             required: true,
+            max: 1000,
         },
         tags: {
             type: Array,
@@ -18,9 +19,16 @@ const PostSchema = new mongo.Schema(
             type: Number,
             default: 0,
         },
-        user: {
-            type: mongo.Schema.Types.ObjectId,
-            ref: 'User',
+        img:{
+            type: String,
+            max: 500,
+        },
+        likes:{
+            type: Array,
+            default: []
+        },
+        userId: {
+            type: String,
             required: true,
         },
         imageUrl: String,

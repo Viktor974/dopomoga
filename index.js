@@ -49,9 +49,13 @@ app.use('/upload', checkAuth, upload.single('image'), (req, res)=>{
 app.use('/uploads', express.static('uploads'));
 
 
-app.post('/reg', registerValidation ,validationErrors , AuthController.register);
-app.post('/login', loginValidation, validationErrors, AuthController.login);
-app.put('/.id', loginValidation, validationErrors, UserController.update);
+app.post('/reg', loginValidation, AuthController.register);
+app.post('/login', loginValidation, AuthController.login);
+app.put('/:id', loginValidation, UserController.update);
+app.delete('/:id', loginValidation, UserController.deleteUser);
+app.get('/:id', loginValidation, UserController.getOne);
+app.put('/:id/follow', loginValidation, UserController.follow);
+app.put('/:id/unfollow', loginValidation, UserController.unfollow);
 // app.get('/me', checkAuth, UserController.getMe);
 
 
@@ -59,7 +63,8 @@ app.post('/posts', checkAuth, postCreateValidation, PostController.create);
 app.delete('/posts/:id', checkAuth, PostController.remove);
 app.get('/posts/:id', PostController.getOne);
 app.get('/posts', PostController.getAll);
-app.patch('/posts/:id', checkAuth, postCreateValidation, PostController.update);
+app.put('/posts/:id', postCreateValidation, PostController.update);
+app.put('/posts/:id/like', postCreateValidation, PostController.like);
 
 app.post('/organization',checkAuth, organizationValidation, Organization.create);
 app.get('/organization/:id', checkAuth, Organization.remove);
