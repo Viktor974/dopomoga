@@ -25,7 +25,7 @@ mongoose
     .then(() => console.log("DB connected"))
     .catch((err) => console.log("DB error", err))
 
-const baseURL = process.env.BASE_URL
+const baseURL = "/api/"
 
 app.use(`${baseURL}/users`, UserRoutes)
 app.use(`${baseURL}/posts`, PostsRoutes)
