@@ -27,19 +27,26 @@ const PostSchema = new mongoose.Schema(
             type: String,
             max: 500,
         },
-        likes:{
-            type: Array,
-            default: []
+        like:[
+            {
+                type:mongoose.Schema.Types.ObjectId,
+                ref:"user",
+            }
+        ],
+        user:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"user",
+            required:true
         },
-        userId: {
-            type: String,
-            required: true,
-        },
-        imageUrl: String,
+        images:[
+            {
+                type:String
+            }
+        ],
     },
     {
         timestamps: true,
     },
 );
 
-export default mongoose.model('Post', PostSchema);
+export default mongoose.model('post', PostSchema);

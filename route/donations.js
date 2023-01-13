@@ -1,9 +1,9 @@
 import express from "express"
 import Auth from '../middlewares/Auth.js'
-import Like from '../controllers/Like.js'
-import { addComment, deleteComment } from '../controllers/Comment.js';
+import {DonationLike} from '../controllers/Like.js'
+import { addCommentDonation, deleteComment } from '../controllers/Comment.js';
 import {createDonation, allDonations, DeleteDonation, editDonation} from "../controllers/Donation.js"
-const uploadOptions = require('../middlewares/Uploads.js');
+import uploadOptions from '../middlewares/Uploads.js';
 
 const router = express.Router()
 
@@ -12,13 +12,13 @@ router.post('/create' , Auth , uploadOptions.array('images' ,10)  , createDonati
 
 router.get('/all' , Auth, allDonations);
 
-router.delete('/delete/:postid' , Auth , DeleteDonation );
+router.delete('/delete/:donationId' , Auth , DeleteDonation );
 
-router.put('/edit/:postid' , Auth , editDonation);
+router.put('/edit/:donationId' , Auth , editDonation);
 
-router.put('/like/:postId' , Auth , Like);
+router.put('/like/:donationId' , Auth , DonationLike);
 
-router.post('/comment/add' , Auth , addComment);
+router.post('/comment/add' , Auth , addCommentDonation);
 
 router.delete('/comment/delete/:commentId' , Auth , deleteComment)
 

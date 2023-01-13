@@ -17,9 +17,9 @@ export const createDonation = async (req, res) => {
             images: imagesUrl,
             user: req.user._id
         });
-        if (!newDonation) return res.status(500).json({message: "smothing went wrong !!"});
+        if (!newDonation) return res.status(500).json({message: "something went wrong !!"});
         await newDonation.save()
-        let fullDonation = await newDonation.populate('user', "username profile_pic")
+        let fullDonation = await newDonation.populate('user', "fullName profile_pic")
         return res.status(200).json(fullDonation);
     } catch (error) {
         return res.status(500).json(error)
@@ -50,7 +50,7 @@ export const DeleteDonation = async (req, res) => {
         await getDonation.remove();
         return res.status(200).json({message: "Donation Deleted successfully"})
     } catch (error) {
-        return res.status(500).json({message: "somthing went wrong !!"});
+        return res.status(500).json({message: "something went wrong !!"});
     }
 }
 
@@ -69,6 +69,6 @@ export const editDonation = async (req, res) => {
 
         return res.status(200).json({data: newDonation, message: "updated successfully "});
     } catch (error) {
-        return res.status(500).json({message: "somthing went wrong !!"});
+        return res.status(500).json({message: "something went wrong !!"});
     }
 }

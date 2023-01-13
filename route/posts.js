@@ -1,7 +1,7 @@
 import express from "express"
 import Auth from '../middlewares/Auth.js'
-import Like from '../controllers/Like.js'
-import { addComment, deleteComment } from '../controllers/Comment.js';
+import {PostLike} from '../controllers/Like.js'
+import { addCommentPost, deleteComment } from '../controllers/Comment.js';
 import {createPost, allPosts, deletePost, editPost, followingPosts} from "../controllers/Post.js"
 import uploadOptions from '../middlewares/Uploads.js';
 
@@ -15,9 +15,9 @@ router.delete('/delete/:postid' , Auth , deletePost );
 
 router.put('/edit/:postid' , Auth , editPost);
 
-router.put('/like/:postId' , Auth , Like);
+router.put('/like/:postId' , Auth , PostLike);
 
-router.post('/comment/add' , Auth , addComment);
+router.post('/comment/add' , Auth , addCommentPost);
 
 router.delete('/comment/delete/:commentId' , Auth , deleteComment);
 

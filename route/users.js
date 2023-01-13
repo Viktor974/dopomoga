@@ -6,14 +6,14 @@ import uploadOptions from '../middlewares/Uploads.js';
 
 const router = express.Router();
 
-router.get('/all' , Auth , allUsers);
+router.get('/all' , Auth, allUsers);
 
 router.put('/follow/:followId' , Auth , Follow);
 
 router.get('/profile' , Auth , ProfileInfo);
 
-router.get('/:userId' , Auth , UserInfo);
+router.get('/:userId'  , Auth, UserInfo);
 
-router.put('/edit' , Auth , uploadOptions.fields([{name:'profile_pic' , maxCount:1} , {name:'cover_pic' , maxCount:1}]) , editUser);
+router.put('/edit' , Auth , uploadOptions.single('profile_pic') , editUser);
 
 export default router

@@ -8,9 +8,7 @@ const UserSchema = new mongoose.Schema({
     },
     fullName: {
         type: String,
-        required: true,
-        min: 3,
-        max: 30,
+        required: true
     },
     login: {
         type: String,
@@ -21,7 +19,14 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    avatarUrl: String,
+    profile_pic: {
+        type:String,
+        default:"https://media.istockphoto.com/id/1223671392/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?b=1&s=612x612&w=0&k=20&c=gq94kIlhv7wf-8YRE4LYTN2U46OxB4DStMU9FrSgXY0="
+    },
+    gender:{
+        type:String,
+        default:"male"
+    },
     country: {
         type: String,
     },
@@ -31,7 +36,7 @@ const UserSchema = new mongoose.Schema({
     birthday: {
         String,
     },
-    phoneNumber: {
+    mobile: {
         String,
     },
     biography: {
@@ -41,24 +46,20 @@ const UserSchema = new mongoose.Schema({
         type:Array,
         default:[]
     },
-    followers:{
-        type:Array,
-        default:[]
-    },
-    followings:{
-        type:Array,
-        default:[]
-    },
+    following:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'user'
+    }],
+    followers:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'user'
+    }],
     isAdmin:{
         type: Boolean,
         default: false
-    },
-    relationship:{
-        type: Number,
-        enum: [1, 2, 3],
     }
 }, {
     timestamps: true,
 })
 
-export default mongoose.model('User', UserSchema)
+export default mongoose.model('user', UserSchema)

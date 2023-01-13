@@ -2,91 +2,60 @@ import UserModel from "../models/user.js"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 
+const EmailEX = [
+    "@gmail.com",
+    "@yahoo.com",
+    "@hotmail.com",
+    "@outlook.com"
+]
+
 export const login = async (req,res)=>{
     try {
-        const user = await UserModel.findOne({ email: req.body.email });
+        const {email , password } = req.body;
 
-        !user && res.status(404).json({message: 'Пользователь не найден'});
+        if(!email || !password) return res.status(403).json({message:"Email and password required "});
 
-        const isValidPass = await bcrypt.compare(req.body.password, user._doc.password);
-        !isValidPass && res.status(400).json({message: 'Неверный логин или пароль'});
+        const finduser = await UserModel.findOne({email});
 
-        // res.status(200).json(user)
-        const token = jwt.sign(
-            {
-                _id: user._id,
-            },
-            'secret'
-        );
-
-        const { password, updatedAt, ...userData } = user._doc;
-
-        res.cookie("accessToken", token,{
-            httpOnly: true,
-        }).status(200).json(userData)
-
-
-        // res.json({
-        //     ...userData,
-        // });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({
-            message: 'Не удалось авторизоваться',
-        });
+        if(finduser && bcrypt.compareSync(password , finduser.password)){
+            const token = jwt.sign({userId:finduser._id } , "secret" , {expiresIn:'1d'});
+            return res.status(200).json({ username:finduser.username, surname:finduser.surname , token , _id:finduser._id , profile_pic:finduser.profile_pic})
+        }
+        return res.status(400).json({message:"Invalied Email or Password "})
+    } catch (error) {
+        return res.status(403).json({message:error.message})
     }
 }
 
 export const register = async (req,res)=>{
     try {
-        const salt = bcrypt.genSaltSync(10)
-        const passwordHash = bcrypt.hashSync(req.body.password, salt)
-        // const passwordHash = bcrypt.hashSync("12345678", salt)
+        const {fullName, email, password, login} = req.body;
 
-        const doc = new UserModel({
-            fullName: req.body.fullName,
-            login: req.body.login,
-            email: req.body.email,
-            password: passwordHash,
-            avatarUrl: req.body.avatarUrl,
-            country: req.body.country,
-            city: req.body.city,
-            birthday: req.body.birthday,
-            phoneNumber: req.body.phoneNumber,
-            biography: req.body.biography,
+        if(!fullName || !email || !password  || !login){
+            return res.status(403).json({message:"All fields required!!"});
+        }
 
-            // fullName: "Taras Pravda",
-            // login: "taras",
-            // email: "taraspravda@gmail.com",
-            // password: passwordHash,
-            // avatarUrl: "",
-            // country: "Ukraine",
-            // city: "Kiev",
-            // birthday: "01.01.2001",
-            // phoneNumber: "+3801122334455",
-            // biography: "I am...",
-        });
-
-        const user = await doc.save();
+        if(!EmailEX.some(emailex => email.includes(emailex) )){
+            return res.status(400).json({message:"Please Enter Valied Email !!"});
+        }
 
 
+        const findEmail = await UserModel.findOne({email})
+        if(findEmail){
+            return res.status(400).json({message:"This email already registed !!"})
+        }
 
-        const { password, ...userData } = user._doc;
 
-        res.json({
-            ...userData,
-        });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({
-            message: "Error",
-        });
+        const hashpass = bcrypt.hashSync(password , 10);
+
+        let newUser = new UserModel({...req.body , password:hashpass});
+        newUser = await newUser.save();
+
+
+        if(!newUser) return res.status(500).json({message:"somethign went wrong "});
+        return res.status(200).json({message:"Account created Successfully"});
+
+    } catch (error) {
+        return res.status(403).json({message:error})
     }
-}
-
-export const logout = async (req,res)=>{
-    res.clearCookie("accessToken",{
-        secure:true,
-            sameSite: "none",
-    }).status(200).json("User has been logged out.")
 }

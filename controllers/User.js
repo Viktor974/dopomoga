@@ -15,7 +15,7 @@ export const ProfileInfo = async (req, res) => {
     try {
         const SignedUser = await User.findById(req.user._id)
             .select('-password')
-            .populate("followers", "avatarUrl fullName");
+            .populate("followers", "profile_pic fullName");
         if (!SignedUser)
             return res.status(404)
                 .json({message: "user not found!!"});
@@ -29,7 +29,7 @@ export const ProfileInfo = async (req, res) => {
 export const allUsers = async (req, res) => {
     try {
         const findUsers = await User.find({})
-            .select('avatarUrl fullName followers');
+            .select('profile_pic fullName followers');
         if (!findUsers)
             return res.status(500)
                 .json({message: "somthing went wrong !!"});
@@ -43,10 +43,10 @@ export const allUsers = async (req, res) => {
 
 export const editUser = async (req, res) => {
     try {
-        if (Object.keys(req.files).length) {
+        if (Object.keys(req.file).length) {
             var ImgObj = {}
-            for (let key in req.files) {
-                const Img_Url = await Cloudinary.uploader.upload(req.files[key][0].path);
+            for (let key in req.file) {
+                const Img_Url = await Cloudinary.uploader.upload(req.file[key][0].path);
                 ImgObj = {...ImgObj, [key]: Img_Url.url, public_id: Img_Url.public_id}
             }
         }

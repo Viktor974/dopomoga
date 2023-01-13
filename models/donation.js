@@ -38,4 +38,4 @@ const DanationSchema = new mongoose.Schema(
     },
 );
 
-export default mongoose.model('Donation', DanationSchema);
+export default mongoose.model('donation', DanationSchema);
