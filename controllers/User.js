@@ -43,18 +43,14 @@ export const allUsers = async (req, res) => {
 
 export const editUser = async (req, res) => {
     try {
-        if (Object.keys(req.file).length) {
-            var ImgObj = {}
-            for (let key in req.file) {
-                const Img_Url = await Cloudinary.uploader.upload(req.file[key][0].path);
-                ImgObj = {...ImgObj, [key]: Img_Url.url, public_id: Img_Url.public_id}
-            }
+        if(req.file){
+            req.body.profile_pic = req.file.path
         }
 
 
-        const getUser = await User.findByIdAndUpdate(req.user._id, {
-            ...req.body,
-            ...ImgObj
+        const getUser = await User.findByIdAndUpdate(req.user._id,
+            {
+            ...req.body
         }, {new: true});
 
         if (!getUser) return res.status(404)

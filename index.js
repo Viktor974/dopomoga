@@ -1,7 +1,6 @@
 import express from "express"
 import mongoose from "mongoose"
 import morgan from "morgan"
-import fileUploads from "express-fileupload"
 import cookieParser from "cookie-parser"
 import dotenv from "dotenv"
 import cors from "cors"
@@ -18,8 +17,7 @@ app.use(morgan("tiny"))
 app.use(cors())
 app.use(cookieParser())
 dotenv.config()
-app.use(fileUploads({}));
-
+app.use("/public/uploads", express.static("public/uploads"))
 app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Origin", true)
     next()

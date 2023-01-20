@@ -14,6 +14,6 @@ router.get('/profile' , Auth , ProfileInfo);
 
 router.get('/:userId'  , Auth, UserInfo);
 
-router.put('/edit' , Auth , uploadOptions.single('profile_pic') , editUser);
+router.put('/edit' , Auth, uploadOptions.single("avatar") , editUser);
 
 export default router

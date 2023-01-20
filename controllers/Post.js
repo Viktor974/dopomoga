@@ -3,12 +3,13 @@ import User from '../models/user.js';
 
 export const createPost = async (req, res) => {
     try {
-        const {content} = req.body;
+        const content = req.body;
         console.log(content)
         console.log(req.files)
 
         let imagesUrl = [];
-        if(req.files.length){
+        if(req.files){
+            console.log("ok")
             req.files.map(file => {
                 imagesUrl.push(`${req.protocol}://${req.get("host")}/public/uploads/${file.filename}`);
             })
@@ -16,7 +17,7 @@ export const createPost = async (req, res) => {
         if(!content) return res.status(403).json({message:"please add some content !!"});
         const newPost = new Post({
             ...req.body,
-            images:imagesUrl,
+            img:imagesUrl,
             user:req.user._id});
         if(!newPost) return res.status(500).json({message:"something went wrong !!"});
 
@@ -80,7 +81,7 @@ export const editPost = async (req, res) => {
     }
 }
 
-export const followingPosts = async (req, res) => {
+export const myPosts = async (req, res) => {
     try {
         const getUser = await User.findById(req.user._id);
         if (!getUser) return res.status(404).json({message: "user not found !!"});

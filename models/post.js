@@ -24,8 +24,8 @@ const PostSchema = new mongoose.Schema(
             default: 0,
         },
         img:{
-            type: String,
-            max: 500,
+            type: Array,
+            default: []
         },
         like:[
             {
@@ -38,11 +38,6 @@ const PostSchema = new mongoose.Schema(
             ref:"user",
             required:true
         },
-        images:[
-            {
-                type:String
-            }
-        ],
     },
     {
         timestamps: true,
