@@ -1,5 +1,4 @@
 import User from '../models/user.js';
-import Cloudinary from '../middlewares/Cloudinary.js'
 
 export const UserInfo = async (req, res) => {
     try {

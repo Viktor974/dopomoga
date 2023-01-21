@@ -6,7 +6,6 @@ import dotenv from "dotenv"
 import cors from "cors"
 import UserRoutes from "./route/users.js"
 import PostsRoutes from "./route/posts.js"
-import DonationsRoutes from "./route/donations.js"
 import AuthRoutes from "./route/auth.js"
 
 const app = express()
@@ -32,7 +31,6 @@ const baseURL = "/api"
 
 app.use(`${baseURL}/users`, UserRoutes)
 app.use(`${baseURL}/posts`, PostsRoutes)
-app.use(`${baseURL}/donation`, DonationsRoutes)
 app.use(`${baseURL}/auth`, AuthRoutes)
 
 const Port = process.env.PORT
