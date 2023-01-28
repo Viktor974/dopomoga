@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+
+    <link rel="icon" type="image/x-icon" href="../../dopomoga-frontend-master/public/favicon.ico">
+    <link rel="stylesheet" href="../public/css/profile_filled.css">
+    <link rel="stylesheet" href="../public/css/header_login.css">
+    <link rel="stylesheet" href="../public/css/profile_friends.css">
+    <link rel="stylesheet" href="../public/css/my_messages.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@500&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+  <%- include('./partials/header');%>
+  
+    <main>
+      <aside>
+        <div class="left-aside">
+            <a href=""><img id="avatar" src="../public/folder/image/img_11.png" alt=""></a>
+      
+            <a href=""><h3 class="my-profile-text">Мій профіль</h3></a>
+
+
+            <%- include('./partials/profile_nav_main.ejs');%>
+
+            <a width="180px" height="208px" href=""><img src="../public/folder/svg/want-help.svg" alt=""></a>
+
+            <div class="left-nav">
+                <a href="" class="link">Конфіденційність</a>
+                <a href="" class="link">Правила</a>
+                <a href="" class="link">Реклама</a>
+                <a href="" class="link">Написати нам</a>
+            </div>
+        </div>
+    </aside>
+
+
+      <div class="content">
+        <div class="friends-nav">
+          <a href="" class="active">Сповіщення (9)</a>
+          <a href="">Додати діалог</a>
+          <a href="">Створити группу</a>
+          <input class="friends-search" type="text" placeholder="Пошук">
+        </div>
+            
+        <div class="main-notification">
+          <div class="chats">
+
+            <div class="post">
+              <span class="username-date">
+                <img width="30" height="30" id="post-avatar" src="../public/folder/image/img_11.png" alt="">
+                <span>
+                  <h5>Lorem Ipsum</h5>
+                  <p>24.10.22</p>
+                </span>
+              </span>
+    
+              <div class="post-content">  
+                <p>Lorem ipsum dolor sit amet, consectetur mperdiet dignissim consequat mal...</p>
+              </div>
+            </div>
+            <div class="post">
+              <span class="username-date">
+                <img width="30" height="30"id="post-avatar" src="../public/folder/image/img_11.png" alt="">
+                <span>
+                  <h5>Lorem Ipsum</h5>
+                  <p>24.10.22</p>
+                </span>
+              </span>
+    
+              <div class="post-content">  
+                <p>Lorem ipsum dolor sit amet, consectetur mperdiet dignissim consequat mal...</p>
+              </div>
+            </div>
+            <div class="post">
+              <span class="username-date">
+                <img width="30" height="30"id="post-avatar" src="../public/folder/image/img_11.png" alt="">
+                <span>
+                  <h5>Lorem Ipsum</h5>
+                  <p>24.10.22</p>
+                </span>
+              </span>
+    
+              <div class="post-content">  
+                <p>Lorem ipsum dolor sit amet, consectetur mperdiet dignissim consequat mal...</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="messages">
+              <div class="message">
+                <span class="username-date">
+                  <img width="30" height="30"id="post-avatar" src="../public/folder/image/img_11.png" alt="">
+                  <span class="nicknames">
+                    <h5>Lorem Ipsum</h5>
+                    <p>24.10.22</p>
+                  </span>
+                </span>
+                <div class="post-content">  
+                  <p>Lorem ipsum dolor sit amet, consecitetur adirem ipsum dolor sit amet, consecitetur adipipirem ipsum dolor sit amet, consecitetur adipiscing elit. Blandi</p>
+                </div>
+              </div>
+              <div class="message">
+                <span class="username-date">
+                  <img width="30" height="30"id="post-avatar" src="../public/folder/image/img_11.png" alt="">
+                  <span class="user-nickname">
+                    <h5>Lorem Ipsum</h5>
+                    <p>24.10.22</p>
+                  </span>
+                </span>
+                <div class="post-content">  
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit proin imperdiet dignissim consequat malesuada eu amet. Mi pharetra, dignissim neque quam nunc.</p>
+                </div>
+              </div>
+              <div class="message">
+                <span class="username-date">
+                  <img width="30" height="30"id="post-avatar" src="../public/folder/image/img_11.png" alt="">
+                  <span class="user-nickname">
+                    <h5>Lorem Ipsum</h5>
+                    <p>24.10.22</p>
+                  </span>
+                </span>
+                <div class="post-content">  
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit proin imperdiet dignissim consequat malesuada eu amet. Mi pharetra, dignissim neque quam nunc.</p>
+                </div>
+              </div>
+
+
+              <footer>
+                <div class="enter-message">
+                  <span class="funcs-icons">
+                    <a href=""><img width="30" height="30" src="../public/folder/svg/file.svg" alt=""></a>
+                    <a href=""><img width="35" height="30" src="../public/folder/svg/photo.svg" alt=""></a>
+                  </span>
+                  <span class="sendmessage-text">
+                    <textarea name="" class="message-text-area" cols="30" rows="10" placeholder="Написати">                  </textarea>
+                    <a href="">
+                      <img class="send-message-btn" src="../public/folder/svg/send-message-btn.svg" alt="">
+                    </a>
+                  </span>
+                  
+                </div>
+              </footer>
+          </div>
+
+      </div>
+    </main>    
+  </body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main</title>
+
+    <link rel="icon" type="image/x-icon" href="../../dopomoga-frontend-master/public/favicon.ico">
+    <link rel="stylesheet" href="../public/css/header_login.css">
+    <link rel="stylesheet" href="../public/css/main.css">
+    <link rel="stylesheet" href="../public/css/main_add_profile_info.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@500&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+  <%- include('./partials/header');%>
+    <main>
+        <div class="edit-profile-info">
+          <h3>Додати інформацію</h3>
+          <img class="edit-profile-photo" src="../public/folder/svg/edit-profile-photo.svg" alt="">
+          <div class="name-country-info">
+            <div class="name-info">
+              <label for="surname">Прізвище</label>
+              <input name="surname" type="text" value="">
+
+              
+              <label for="name">Ім’я</label>
+              <input name="name" type="text" value="">
+            </div>
+
+            <div class="country-info">
+              <label for="country">Країна</label>
+              <input name="country" type="text">
+  
+  
+              <label for="city">Місто</label>
+              <input name="city" type="text">
+            </div>
+
+          </div>
+
+          <div class="foot-btns">
+            <a class="skip-btn" href="">Пропустити</a>
+            <a class="goprofile-btn" href="">Перейти до профілю</a>
+          </div>
+
+        </div>
+
+        <aside>
+            <div class="left-aside">
+                <a href=""><img id="avatar" src="../public/folder/image/img_11.png" alt=""></a>
+          
+                <a href=""><h3 class="my-profile-text">Мій профіль</h3></a>
+
+                <div class="aside-line"></div>
+
+                <ul class="my-profile-sections">
+                    <li class="section-row"><a href=""><img src="../public/folder/svg/people.svg" alt=""></a></li>
+                    <li class="section-row"><a href=""><img src="../public/folder/svg/notification.svg" alt=""></a></li>
+                    <li class="section-row"><a href=""><img src="../public/folder/svg/groups.svg" alt=""></a></li>
+                    <li class="section-row"><a href=""><img src="../public/folder/svg/news.svg" alt=""></a></li>
+                    <li class="section-row"><a href=""><img src="../public/folder/svg/history.svg" alt=""></a></li>
+                    <li class="section-row"><a href=""><img src="../public/folder/svg/selected.svg" alt=""></a></li>
+                </ul>
+
+                <div class="aside-line"></div>
+
+                <ul class="optional-profile-sections">
+                    <li class="section-row"><a href=""><img src="../public/folder/svg/volunteers.svg" alt=""></a>
+                    <li class="section-row"><a href=""><img src="../public/folder/svg/organization.svg" alt=""></a>
+                    <li class="section-row"><a href=""><img src="../public/folder/svg/projects.svg" alt=""></a>
+                    <li class="section-row"><a href=""><img src="../public/folder/svg/childrendreams.svg" alt=""></a>
+                    <li class="section-row"><a href=""><img src="../public/folder/svg/partners.svg" alt=""></a>
+                    <li class="section-row"><a href=""><img src="../public/folder/svg/faqqq.svg" alt=""></a>
+                </ul>
+
+                <a width="180px" height="208px" href=""><img src="../public/folder/svg/want-help.svg" alt=""></a>
+
+                <div class="left-nav">
+                    <a href="" class="link">Конфіденційність</a>
+                    <a href="" class="link">Правила</a>
+                    <a href="" class="link">Реклама</a>
+                    <a href="" class="link">Написати нам</a>
+                </div>
+            </div>
+        </aside>
+
+        <div class="content">
+          <div class="zbory">
+            <a href=""><img src="../public/folder/image/img_6.png" alt=""></a>
+            <a href=""><img src="../public/folder/image/img_7.png" alt=""></a>
+            <a href=""><img src="../public/folder/image/img_8.png" alt=""></a>
+            <p><a class="all-projects-btn" href="">Всі проєкти</a></p>
+          </div>
+
+          <div class="write-post">
+            <input class="write-bar" type="text" placeholder="Написати">
+            <a href=""><img width="30" height="30" src="../public/folder/svg/photo.svg" alt=""></a>
+            <p>Додати фото/відео</p>
+          </div>
+
+          <div class="nav-content-aside">
+            <div class="content-nav">
+              <a href="" class="active">Все</a>
+              <a href="">Діти</a>
+              <a href="">Світ</a>
+              <a href="">Тварини</a>
+              <a href="">Природа</a>
+              <a href="">Медицина</a>
+              <a href=""><img src="../public/folder/svg/more-navbar.svg" alt=""></a>
+            </div>
+            
+            <aside>
+              <div class="ad">
+                <h2 class="ad-title">Реклама</h2>
+              </div>
+            </aside>
+           
+          </div>
+
+          <div class="main-content">
+            <div class="post">
+              <span class="username-date">
+                <img width="30" height="30"id="post-avatar" src="../public/folder/image/img_11.png" alt="">
+                <span>
+                  <h5>Lorem Ipsum</h5>
+                  <p>24.10.22</p>
+                </span>
+              </span>
+    
+              <div class="post-content">  
+                <h4>Lorem ipsum dolor </h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit proin imperdiet dignissim consequat malesuada eu amet. Mi pharetra, dignissim neque quam nunc. Eleifend sit pellentesque eu lectus nulla volutpat mattis. Eu at cursus bibendum tincidunt sit habitasse cursus quis. Ridiculus auctor vitae nulla nibh malesuada lobortis dolor. Leo bibendum et varius sem lectus commodo nibh vitae.</p>
+                <span class="tags">Теги:
+                  <a href="#">діти</a>
+                </span>
+    
+                <div class="post-funcs">
+                  <span class="like">
+                    <a>
+                      <img width="22" height="20" src="../public/folder/image/img_2.png" alt="">
+                    </a>
+                    подобається (233)
+                  </span>
+                  <span class="favorites">
+                    <a>
+                      <img width="20" height="20" src="../public/folder/image/img_3.png" alt="">
+                    </a>
+                    в обране (102)
+                  </span>
+                  <span class="reposts">
+                    <a>
+                      <img width="20" height="12" src="../public/folder/image/img_4.png" alt="">
+                    </a>
+                    поділитися (8)
+                  </span>
+                </div>
+    
+                <div class="line"></div>
+    
+                <div class="comment">
+                  <a href="">Коментувати</a>
+                  <a href="" class="comments">Коментарі (15)</a>
+                </div>
+            </div>
+            </div>
+            <div class="ad-box">
+              <a href="">
+                <img class="ad-picture" src="../public/folder/image/img_9.png" alt="">
+                <img class="ad-picture" src="../public/folder/image/img_10.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+    </main>    
+  </body>
+</html>

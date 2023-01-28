@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+
+    <link rel="icon" type="image/x-icon" href="../../dopomoga-frontend-master/public/favicon.ico">
+    <link rel="stylesheet" href="../public/css/profile_filled.css">
+    <link rel="stylesheet" href="../public/css/header_login.css">
+    <link rel="stylesheet" href="../public/css/profile_friends.css">
+    <link rel="stylesheet" href="../public/css/profile_notifications.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@500&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+  <%- include('./partials/header');%>
+  
+    <main>
+      <aside>
+        <div class="left-aside">
+          <img id="avatar" src="../public/folder/image/img_11.png" alt="">
+          
+          <h2 class="username">Антон Бойко</h2>
+
+          <span class="prof bold-text">Волонтер</span>
+
+          <span class="location">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 0C4.47715 0 0 4.47715 0 10C0 15.5229 4.47715 20 10 20C15.5229 20 20 15.5229 20 10C20 4.47715 15.5229 0 10 0ZM10 3.38745C12.7531 3.38745 14.9854 5.61973 14.9854 8.3728C14.9854 9.20675 14.7568 10.3077 14.2871 10.9302L10 16.6126L5.71288 10.9302C5.19573 10.2448 5.01463 9.29353 5.01463 8.37283C5.01465 5.61973 7.24692 3.38745 10 3.38745ZM10 6.27563C8.84162 6.27563 7.90283 7.21442 7.90283 8.3728C7.90283 9.53118 8.84162 10.47 10 10.47C11.1584 10.47 12.0972 9.53118 12.0972 8.3728C12.0972 7.21442 11.1584 6.27563 10 6.27563Z" fill="#B8BECA"/>
+            </svg> 
+
+            <span>Київ, Україна</span>
+          </span>
+
+          <button class="edit">Редагувати</button>
+
+          <span class="create-date">
+            Профіль створено: <p>15.12.18</p>
+          </span>
+
+          <span class="bio">
+            <h4>Біографія</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit proin imperdiet dignissim consequat malesuada eu amet. Mi pharetra, dignissim neque quam nunc. Eleifend sit pellentesque eu lectus nulla volutpat mattis. Eu at cursus bibendum tincidunt sit habitasse cursus quis. Ridiculus auctor vitae nulla nibh malesuada lobortis dolor. Leo bibendum et varius sem lectus commodo nibh vitae.</p>
+            <a href="#" class="edit-bio">Редагувати</a>
+          </span>
+
+          <div class="left-nav">
+            <a href="" class="link">Конфіденційність</a>
+            <a href="" class="link">Правила</a>
+            <a href="" class="link">Реклама</a>
+            <a href="" class="link">Написати нам</a>
+          </div>
+
+        </div>
+      </aside>
+
+      <div class="content">
+        <div class="friends-nav">
+          <a href="" class="active">Сповіщення (9)</a>
+          <a href="">Додати діалог</a>
+          <a href="">Створити группу</a>
+          <input class="friends-search" type="text" placeholder="Пошук">
+        </div>
+            
+        <div class="main-notification">
+          <div class="chats">
+
+            <div class="post">
+              <span class="username-date">
+                <img width="30" height="30" id="post-avatar" src="../public/folder/image/img_11.png" alt="">
+                <span>
+                  <h5>Lorem Ipsum</h5>
+                  <p>24.10.22</p>
+                </span>
+              </span>
+    
+              <div class="post-content">  
+                <p>Lorem ipsum dolor sit amet, consectetur mperdiet dignissim consequat mal...</p>
+              </div>
+            </div>
+            <div class="post">
+              <span class="username-date">
+                <img width="30" height="30"id="post-avatar" src="../public/folder/image/img_11.png" alt="">
+                <span>
+                  <h5>Lorem Ipsum</h5>
+                  <p>24.10.22</p>
+                </span>
+              </span>
+    
+              <div class="post-content">  
+                <p>Lorem ipsum dolor sit amet, consectetur mperdiet dignissim consequat mal...</p>
+              </div>
+            </div>
+            <div class="post">
+              <span class="username-date">
+                <img width="30" height="30"id="post-avatar" src="../public/folder/image/img_11.png" alt="">
+                <span>
+                  <h5>Lorem Ipsum</h5>
+                  <p>24.10.22</p>
+                </span>
+              </span>
+    
+              <div class="post-content">  
+                <p>Lorem ipsum dolor sit amet, consectetur mperdiet dignissim consequat mal...</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="messages">
+              <div class="message">
+                <span class="username-date">
+                  <img width="30" height="30"id="post-avatar" src="../public/folder/image/img_11.png" alt="">
+                  <span class="nicknames">
+                    <h5>Lorem Ipsum</h5>
+                    <p>24.10.22</p>
+                  </span>
+                </span>
+                <div class="post-content">  
+                  <p>Lorem ipsum dolor sit amet, consecitetur adirem ipsum dolor sit amet, consecitetur adipipirem ipsum dolor sit amet, consecitetur adipiscing elit. Blandi</p>
+                </div>
+              </div>
+              <div class="message">
+                <span class="username-date">
+                  <img width="30" height="30"id="post-avatar" src="../public/folder/image/img_11.png" alt="">
+                  <span class="user-nickname">
+                    <h5>Lorem Ipsum</h5>
+                    <p>24.10.22</p>
+                  </span>
+                </span>
+                <div class="post-content">  
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit proin imperdiet dignissim consequat malesuada eu amet. Mi pharetra, dignissim neque quam nunc.</p>
+                </div>
+              </div>
+              <div class="message">
+                <span class="username-date">
+                  <img width="30" height="30"id="post-avatar" src="../public/folder/image/img_11.png" alt="">
+                  <span class="user-nickname">
+                    <h5>Lorem Ipsum</h5>
+                    <p>24.10.22</p>
+                  </span>
+                </span>
+                <div class="post-content">  
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit proin imperdiet dignissim consequat malesuada eu amet. Mi pharetra, dignissim neque quam nunc.</p>
+                </div>
+              </div>
+
+
+              <footer>
+                <div class="enter-message">
+                  <span class="funcs-icons">
+                    <a href=""><img width="30" height="30" src="../public/folder/svg/file.svg" alt=""></a>
+                    <a href=""><img width="35" height="30" src="../public/folder/svg/photo.svg" alt=""></a>
+                  </span>
+                  <span class="sendmessage-text">
+                    <textarea name="" class="message-text-area" cols="30" rows="10" placeholder="Написати">                  </textarea>
+                    <a href="">
+                      <img class="send-message-btn" src="../public/folder/svg/send-message-btn.svg" alt="">
+                    </a>
+                  </span>
+                  
+                </div>
+              </footer>
+          </div>
+
+      </div>
+    </main>    
+  </body>
+</html>

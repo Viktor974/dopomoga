@@ -1,0 +1,9 @@
+.edit-avatar-box img {
+    width: 260px;
+    height: 260px;
+}
+
+.edit-avatar-box svg {
+    margin-top: 227px;
+    position: absolute;
+}

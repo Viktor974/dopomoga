@@ -42,87 +42,44 @@ export const allOrganizations = async (req, res) => {
             return res.status(500)
                 .json({message: "somthing went wrong !!"});
         return res.status(200)
-            .json(findOrganizations.filter(organization => organization._id.toString() !== req.organization._id.toString()));
+            .json(findOrganizations);
     } catch (error) {
         return res.status(500).json(error.message)
     }
 }
 
 
-export const editOrganization = async (req, res) => {
-    try {
-        if(req.file){
-            req.body.profile_pic = req.file.path
-        }
-
-
-        const getOrg = await Organization.findByIdAndUpdate(req.organization._id,
-            {
-                ...req.body
-            }, {new: true});
-
-        if (!getOrg) return res.status(404)
-            .json({message: "Organization not found !!"});
-        return res.status(200).json(getOrg);
-    } catch (error) {
-        return res.status(500).json(error.message)
-    }
-}
-
-export const allPosts = async (req, res) => {
-    try {
-        const getPosts = await Post.find({organization: req.organization._id})
-            .sort({"createdAt": -1});
-        return res.status(200).json(getPosts);
-    } catch (error) {
-        return res.status(500).json({message: error.message});
-    }
-}
 export const editOrganization = async (req, res) => {
     try {
         const getOrg = await Organization.findById(req.params.organizationId);
-        if (!getOrg) return res.status(400).json({message: "something went wrong !!"});
+        if (!getOrg) return res.status(400).json({message: "something went wrong !"});
 
         if (getOrg.owner.toString() !== req.user._id.toString()) {
-            return res.status(400).json({message: "you don`t own this post"})
+            return res.status(400).json({message: "you don`t own this organization"})
         }
         const newOrg = await Organization.findOneAndUpdate(req.params.organizationId, req.body, {new: true});
 
         if (!newOrg)
-            return res.status(500).json({message: "something went wrong !!"});
+            return res.status(500).json({message: "something went wrong ! !"});
 
         return res.status(200).json({data: newOrg, message: "updated successfully "});
     } catch (error) {
-        return res.status(500).json({message: "something went wrong !!"});
-    }
-}
-export const myPosts = async (req, res) => {
-    try {
-        const getOrg = await Organization.findById(req.organization._id);
-        if (!getOrg) return res.status(404).json({message: "user not found !!"});
-        let posts = await Promise.all(getOrg.following.map(async (organization) => {
-            return Post.find({organization})
-        }))
-        const orgPosts = await Post.find({organization: req.organization._id})
-        return res.status(200)
-            .json([...posts.filter(arr => arr.length !== 0)
-                .flat(), ...orgPosts]);
-    } catch (error) {
-        return res.status(500).json(error)
+        return res.status(500).json({message: "something went wrong !!!"});
     }
 }
 
+
 export const deleteOrganization = async (req, res) => {
     try {
-        const {postid} = req.params;
-        if (!postid) return res.status(404).json({message: "Post not found !!"});
-        const getPost = await Post.findById(postid);
-        if (!getPost) return res.status(404).json({message: "Post not Found !!"});
-        if (getPost.user.toString() !== req.user._id.toString()) {
-            return res.status(400).json({message: "you don`t own this post"})
+        const {organizationId} = req.params;
+        if (!organizationId) return res.status(404).json({message: "Organization not found !!"});
+        const getOrg = await Organization.findById(organizationId);
+        if (!getOrg) return res.status(404).json({message: "Organization not Found !!"});
+        if (getOrg.owner.toString() !== req.user._id.toString()) {
+            return res.status(400).json({message: "you don`t own this Organization"})
         }
-        await getPost.remove();
-        return res.status(200).json({message: "Post Deleted successfully"})
+        await getOrg.remove();
+        return res.status(200).json({message: "Organization Deleted successfully"})
     } catch (error) {
         return res.status(500).json({message: "something went wrong !!"});
     }

@@ -11,10 +11,6 @@ const OrganizationSchema = new mongoose.Schema(
             required: true,
             max: 1000,
         },
-        tags: {
-            type: Array,
-            default: [],
-        },
         img: {
             type: Array,
             default: []

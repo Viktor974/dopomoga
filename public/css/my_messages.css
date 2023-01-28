@@ -1,0 +1,294 @@
+.friends-nav {
+    width: 884px;
+    height: 41px;
+  
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  }
+  
+.friends-nav a{
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 20px;
+    /* identical to box height, or 125% */
+
+    text-align: center;
+
+    color: #757575;
+}
+
+    .friends-nav .active {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 20px;
+    /* identical to box height, or 125% */
+
+    text-align: center;
+
+    color: #2D7581;
+}
+
+.friends {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: space-between;
+
+    width: 884px;
+
+
+    height: auto;
+}
+
+.friends-search {
+    text-indent: 10px;
+
+    width: 251px;
+    height: 28px;
+
+    border-style: none;
+    background: #FFFFFF;
+    box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.friends-search::placeholder {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height, or 125% */
+
+    color: #757575;
+}
+
+.friend {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+
+    width: 135px;
+    height: 129px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.friend .friend-avatar {
+    margin-top: 10px;
+    width: 52px;
+    height: 52px;
+}
+
+.ava-set {
+    margin-top: 15px;
+    margin-left: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+.friend-name {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: center;
+
+    color: #2C2C2C;
+
+}
+
+a {
+    cursor: pointer;
+}
+
+.fake {
+    width: 135px;
+    height: 129px;
+}
+
+.left-aside {
+    margin-left: -150px;
+}
+
+.chats, .messages {
+    margin-top: 15px;
+}
+
+.post {
+    overflow: hidden;
+    margin-top: 2px;
+    width: 283px;
+    height: 110px;
+}
+
+.chats .post-content {
+    margin-top: -5px;
+}
+
+.post-content {
+    margin-top: 5px;
+    margin-left: -10px;
+
+    font-weight: 300;
+    font-size: 12px;
+}
+
+
+.post-content h4{
+    font-size: 12px;
+}
+
+.username-date{
+    margin-top: -20px;
+    margin-left: -10px;
+}
+
+.main-notification {
+    width: 884px;
+
+    display: flex;
+}
+
+.messages {
+    margin-left: 2px;
+    width: 100%;
+    height: 845px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.message {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+
+.nicknames h5, .user-nickname h5 {
+    font-weight: 700;
+    font-size: 16px;
+
+    color: #000;
+}
+
+.nicknames p, .user-nickname p {
+    font-weight: 400;
+    font-size: 12px;
+}
+
+
+.user-nickname h5{
+    
+    color: #2D7581;
+    
+}
+
+.enter-message {
+
+    display: flex;
+    padding-bottom: 5px;
+    width: 100%;
+    height: 80px;
+    border-radius: 10px;
+}
+
+
+.funcs-icons img {
+    height: 39px;
+}
+
+.enter-message .funcs-icons {
+    text-align: center;
+    width: 65px;
+}
+
+.message-text-area {
+    padding-top: 15px;
+    box-sizing: border-box;
+    text-indent: 18px;
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+
+    border-style: none;
+    resize: none;
+    background: #FFFFFF;
+    box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.sendmessage-text {
+    width: 525px;
+    height: 79px;
+
+    background: #FFFFFF;
+    box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.send-message-btn {
+    position: absolute;
+    margin-left: -100px;
+}
+
+.left-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 223px;
+    height: auto;
+    left: 135px;
+    top: 80px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+#avatar {
+    width: 100px;
+    height: 100px;
+}
+
+.my-profile-text {
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #000;
+}
+
+.aside-line {
+    margin-top: 25px;
+
+    width: 150px;
+    height: 0px;
+    left: 173px;
+    top: 268px;
+
+    border: 1px solid #D3D3D3;
+}
+
+.my-profile-sections, .optional-profile-sections {
+    width: 80%;
+    margin-top: 15px; 
+}
+
+.section-row {margin-top: 12px;}

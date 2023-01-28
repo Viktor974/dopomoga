@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+
+    <link rel="icon" type="image/x-icon" href="../../dopomoga-frontend-master/public/favicon.ico">
+    <link rel="stylesheet" href="../public/css/friends_profile.css">
+    <link rel="stylesheet" href="../public/css/header_login.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@500&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+
+  <%- include('./partials/header');%>
+    <main>
+      <aside>
+        <div class="left-aside">
+          <img id="avatar" src="../public/folder/image/img_11.png" alt="">
+          
+          <h2 class="username">Антон Бойко</h2>
+
+          <span class="prof bold-text">Волонтер</span>
+
+          <span class="location">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 0C4.47715 0 0 4.47715 0 10C0 15.5229 4.47715 20 10 20C15.5229 20 20 15.5229 20 10C20 4.47715 15.5229 0 10 0ZM10 3.38745C12.7531 3.38745 14.9854 5.61973 14.9854 8.3728C14.9854 9.20675 14.7568 10.3077 14.2871 10.9302L10 16.6126L5.71288 10.9302C5.19573 10.2448 5.01463 9.29353 5.01463 8.37283C5.01465 5.61973 7.24692 3.38745 10 3.38745ZM10 6.27563C8.84162 6.27563 7.90283 7.21442 7.90283 8.3728C7.90283 9.53118 8.84162 10.47 10 10.47C11.1584 10.47 12.0972 9.53118 12.0972 8.3728C12.0972 7.21442 11.1584 6.27563 10 6.27563Z" fill="#B8BECA"/>
+            </svg> 
+
+            <span>Київ, Україна</span>
+          </span>
+
+          <button class="delete">Видалити</button>
+          <button class="write-to-friend">
+            <img src="../public/folder/svg/write-to-friend.svg" alt="">
+            <span>Написати</span>
+          </button>
+
+          <span class="create-date">
+            Профіль створено: <p>15.12.18</p>
+          </span>
+
+          <span class="bio">
+            <h4>Біографія</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit proin imperdiet dignissim consequat malesuada eu amet. Mi pharetra, dignissim neque quam nunc. Eleifend sit pellentesque eu lectus nulla volutpat mattis. Eu at cursus bibendum tincidunt sit habitasse cursus quis. Ridiculus auctor vitae nulla nibh malesuada lobortis dolor. Leo bibendum et varius sem lectus commodo nibh vitae.</p>
+          </span>
+
+          <div class="left-nav">
+            <a href="" class="link">Конфіденційність</a>
+            <a href="" class="link">Правила</a>
+            <a href="" class="link">Реклама</a>
+            <a href="" class="link">Написати нам</a>
+          </div>
+
+        </div>
+      </aside>
+
+      <div class="content">
+        <%- include('./partials/profile_nav');%>
+        <div class="post-area">
+          <input type="text" placeholder="Написати">
+      
+          <a href="">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24.5455 9V6H21.8182V3H24.5455V0H27.2727V3H30V6H27.2727V9H24.5455ZM2.72727 30C1.97727 30 1.33545 29.7065 0.801818 29.1195C0.267273 28.5315 0 27.825 0 27V9C0 8.175 0.267273 7.469 0.801818 6.882C1.33545 6.294 1.97727 6 2.72727 6H7.02273L9.54545 3H17.7273V6H10.7386L8.25 9H2.72727V27H24.5455V13.5H27.2727V27C27.2727 27.825 27.0059 28.5315 26.4723 29.1195C25.9377 29.7065 25.2955 30 24.5455 30H2.72727ZM13.6364 24.75C15.3409 24.75 16.79 24.094 17.9836 22.782C19.1764 21.469 19.7727 19.875 19.7727 18C19.7727 16.125 19.1764 14.531 17.9836 13.218C16.79 11.906 15.3409 11.25 13.6364 11.25C11.9318 11.25 10.4827 11.906 9.28909 13.218C8.09636 14.531 7.5 16.125 7.5 18C7.5 19.875 8.09636 21.469 9.28909 22.782C10.4827 24.094 11.9318 24.75 13.6364 24.75ZM13.6364 21.75C12.6818 21.75 11.875 21.3875 11.2159 20.6625C10.5568 19.9375 10.2273 19.05 10.2273 18C10.2273 16.95 10.5568 16.0625 11.2159 15.3375C11.875 14.6125 12.6818 14.25 13.6364 14.25C14.5909 14.25 15.3977 14.6125 16.0568 15.3375C16.7159 16.0625 17.0455 16.95 17.0455 18C17.0455 19.05 16.7159 19.9375 16.0568 20.6625C15.3977 21.3875 14.5909 21.75 13.6364 21.75Z" fill="#359E4C"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="date-sett">
+          <a href="">
+            <div class="choose-date">
+              <p>Вибрати дату</p>
+            </div>
+          </a>
+
+          <a href="">
+            <div class="choose-settings">
+              <img width="20" height="20" src="../public/folder/image/img.png" alt="">
+            </div>
+          </a>
+        </div>
+
+        <div class="post">
+          <span class="username-date">
+            <img width="30" height="30"id="post-avatar" src="../public/folder/image/img_11.png" alt="">
+            <span>
+              <h5>Lorem Ipsum</h5>
+              <p>24.10.22</p>
+            </span>
+          </span>
+
+          <div class="post-content">  
+            <h4>Lorem ipsum dolor </h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit proin imperdiet dignissim consequat malesuada eu amet. Mi pharetra, dignissim neque quam nunc. Eleifend sit pellentesque eu lectus nulla volutpat mattis. Eu at cursus bibendum tincidunt sit habitasse cursus quis. Ridiculus auctor vitae nulla nibh malesuada lobortis dolor. Leo bibendum et varius sem lectus commodo nibh vitae.</p>
+            <span class="tags">Теги:
+              <a href="#">діти</a>
+            </span>
+
+            <div class="post-funcs">
+              <span class="like">
+                <a>
+                  <img width="22" height="20" src="../public/folder/image/img_2.png" alt="">
+                </a>
+                подобається (233)
+              </span>
+              <span class="favorites">
+                <a>
+                  <img width="20" height="20" src="../public/folder/image/img_3.png" alt="">
+                </a>
+                в обране (102)
+              </span>
+              <span class="reposts">
+                <a>
+                  <img width="../public/image/img_4.png" alt="">
+                </a>
+                поділитися (8)
+              </span>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="comment">
+              <a href="friends_profile_comment">Коментувати</a>
+              <a href="" class="comments">Коментарі (15)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="right-aside">
+          <div class="gallery">
+            <h4>Галерея</h4>
+            <div class="gallery-photos">
+              <img width='80px' height="80px" src="../public/assets/person/1.png" alt="">
+              <img width='80px' height="80px" src="../public/assets/person/2.png" alt="">
+              <img width='80px' height="80px" src="../public/assets/person/3.png" alt="">
+              <img width='80px' height="80px" src="../public/assets/person/4.png" alt="">
+              <img width='80px' height="80px" src="../public/assets/person/5.png" alt="">
+              <img width='80px' height="80px" src="../public/assets/person/6.png" alt="">
+            </div>
+            <a href="profile_gallery">Дивитися фото</a>
+          </div>
+
+          <div class="projects">
+            <h4>Проєкти</h4>
+            <div>
+              <a href="" class="project">
+                <div class="cover-div">
+                  <img src="../public/folder/svg/done.svg" alt="">
+                </div>
+              </a>
+              <a href="" class="project">
+                <div class="cover-div">
+                  <img src="../public/folder/svg/done.svg" alt="">
+                </div>
+              </a>
+            </div>
+
+            <a href="#">Дивитися всі</a>
+          </div>
+        </div>
+      </aside>
+    </main>    
+  </body>
+</html>

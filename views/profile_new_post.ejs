@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+
+    <link rel="icon" type="image/x-icon" href="../../dopomoga-frontend-master/public/favicon.ico">
+    <link rel="stylesheet" href="../public/css/profile_filled.css">
+    <link rel="stylesheet" href="../public/css/header_login.css">
+    <link rel="stylesheet" href="../public/css/profile_new_post.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@500&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+  <%- include('./partials/header');%>
+    <main>
+      <aside>
+        <div class="left-aside">
+          <img id="avatar" src="../public/folder/image/img_11.png" alt="">
+          
+          <h2 class="username">Антон Бойко</h2>
+
+          <span class="prof bold-text">Волонтер</span>
+
+          <span class="location">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 0C4.47715 0 0 4.47715 0 10C0 15.5229 4.47715 20 10 20C15.5229 20 20 15.5229 20 10C20 4.47715 15.5229 0 10 0ZM10 3.38745C12.7531 3.38745 14.9854 5.61973 14.9854 8.3728C14.9854 9.20675 14.7568 10.3077 14.2871 10.9302L10 16.6126L5.71288 10.9302C5.19573 10.2448 5.01463 9.29353 5.01463 8.37283C5.01465 5.61973 7.24692 3.38745 10 3.38745ZM10 6.27563C8.84162 6.27563 7.90283 7.21442 7.90283 8.3728C7.90283 9.53118 8.84162 10.47 10 10.47C11.1584 10.47 12.0972 9.53118 12.0972 8.3728C12.0972 7.21442 11.1584 6.27563 10 6.27563Z" fill="#B8BECA"/>
+            </svg> 
+
+            <span>Київ, Україна</span>
+          </span>
+
+          <button class="edit">Редагувати</button>
+
+          <span class="create-date">
+            Профіль створено: <p>15.12.18</p>
+          </span>
+
+          <span class="bio">
+            <h4>Біографія</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit proin imperdiet dignissim consequat malesuada eu amet. Mi pharetra, dignissim neque quam nunc. Eleifend sit pellentesque eu lectus nulla volutpat mattis. Eu at cursus bibendum tincidunt sit habitasse cursus quis. Ridiculus auctor vitae nulla nibh malesuada lobortis dolor. Leo bibendum et varius sem lectus commodo nibh vitae.</p>
+            <a href="#" class="edit-bio">Редагувати</a>
+          </span>
+
+          <div class="left-nav">
+            <a href="" class="link">Конфіденційність</a>
+            <a href="" class="link">Правила</a>
+            <a href="" class="link">Реклама</a>
+            <a href="" class="link">Написати нам</a>
+          </div>
+
+        </div>
+      </aside>
+
+      <div class="content">
+        <div class="content-nav">
+          <a href="" class="active">Публікації</a>
+          <a href="">Інформація</a>
+          <a href="">Друзі (9)</a>
+          <a href="">Сповіщення</a>
+        </div>
+
+        <div class="new-post-form">
+            <input type="text" placeholder="Тема">
+
+            <textarea type="textarea" placeholder="Текст"></textarea>
+
+            <div class="new-post-photos">
+                <div class="">
+                    <img src="../public/assets/post/9.jpeg" alt="">
+                    <a href=""><p>Видалити</p></a>
+                </div>
+                <div>
+                    <img src="../public/assets/post/8.jpeg" alt="">
+                    <a href=""><p>Видалити</p></a>
+                </div>
+                <div>
+                    <img src="../public/assets/post/10.jpeg" alt="">
+                    <a href=""><p>Видалити</p></a>
+                </div>
+                <div>
+                    <img src="../public/assets/post/7.jpeg" alt="">
+                    <a href=""><p>Видалити</p></a>
+                </div>
+                <div class="add-photo-to-post-button">
+                    <a>
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.66658 15H15.3333V8.33333H16.9999V15H23.6666V16.6667H16.9999V23.3333H15.3333V16.6667H8.66658V15ZM16.1666 0C20.3658 0 24.3931 1.66815 27.3624 4.63748C30.3318 7.6068 31.9999 11.6341 31.9999 15.8333C31.9999 20.0326 30.3318 24.0599 27.3624 27.0292C24.3931 29.9985 20.3658 31.6667 16.1666 31.6667C11.9673 31.6667 7.94005 29.9985 4.97073 27.0292C2.0014 24.0599 0.333252 20.0326 0.333252 15.8333C0.333252 11.6341 2.0014 7.6068 4.97073 4.63748C7.94005 1.66815 11.9673 0 16.1666 0ZM16.1666 1.66667C12.4094 1.66667 8.806 3.15922 6.14924 5.81599C3.49247 8.47275 1.99992 12.0761 1.99992 15.8333C1.99992 19.5906 3.49247 23.1939 6.14924 25.8507C8.806 28.5074 12.4094 30 16.1666 30C19.9238 30 23.5272 28.5074 26.1839 25.8507C28.8407 23.1939 30.3333 19.5906 30.3333 15.8333C30.3333 12.0761 28.8407 8.47275 26.1839 5.81599C23.5272 3.15922 19.9238 1.66667 16.1666 1.66667Z" fill="#757575"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="new-post-line">
+            </div>
+
+            <span class="new-post-project-tag ">Проєкт: 
+                <a href="#">Додати</a>
+            </span>
+
+            <div class="connected-projects">
+                <div class="connected-project">
+                    <div class="blago-fond">
+                        <img src="../public/assets/post/8.jpeg" alt="">
+                        <div class="project-content">
+                            <h4>Благодійний фонд парку 12 місяців</h4>
+                            <p class="project-date">24.10.22</p>
+                            <span class="project-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit proin imperdiet dignissim consequat malesuada eu amet. Mi pharetra, dignissim neque quam nunc. Eleifend sit pellentesque eu lectus nulla volutpat mattis. </span>
+                            <p class="tags">Категорія: <a href="#">діти</a></p>
+                            
+                            <div class="more-info">
+                                <a class="project-donate-button">
+                                    <img src="../public/folder/svg/donate.svg" alt="">
+                                </a>
+                                <a class="project-more-info" href="">Дізнатися більше</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="delete-project" href="">Видалити</a>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="right-aside">
+          <div class="gallery">
+            <h4>Галерея</h4>
+            <div class="gallery-photos">
+              <img width='80px' height="80px" src="../public/assets/person/1.png" alt="">
+              <img width='80px' height="80px" src="../public/assets/person/2.png" alt="">
+              <img width='80px' height="80px" src="../public/assets/person/3.png" alt="">
+              <img width='80px' height="80px" src="../public/assets/person/4.png" alt="">
+              <img width='80px' height="80px" src="../public/assets/person/5.png" alt="">
+              <img width='80px' height="80px" src="../public/assets/person/6.png" alt="">
+            </div>
+            <a href="#">Дивитися фото</a>
+          </div>
+
+          <div class="projects">
+            <h4>Проєкти</h4>
+            <div>
+              <a href="" class="project">
+                <div class="cover-div">
+                  <img src="../public/folder/svg/done.svg" alt="">
+                </div>
+              </a>
+              <a href="" class="project">
+                <div class="cover-div">
+                  <img src="../public/folder/svg/done.svg" alt="">
+                </div>
+              </a>
+            </div>
+
+            <a href="#">Дивитися всі</a>
+          </div>
+        </div>
+      </aside>
+    </main>    
+  </body>
+</html>
